@@ -43,17 +43,19 @@ const products = [
   },
 ];
 
+const BAR_COLORS = ['#eab308', '#000000', '#ca8a04', '#fde047', '#a16207'];
+
 export default function TopProducts() {
   const maxSales = Math.max(...products.map((p) => p.sales));
 
   return (
-    <div className="bg-white rounded-2xl p-5 shadow-sm border border-slate-100 h-full">
+    <div className="bg-white rounded-2xl p-5 shadow-sm border border-yellow-200 h-full">
       <div className="flex items-center justify-between mb-5">
         <div>
-          <h2 className="text-base font-bold text-slate-800">Top Products</h2>
-          <p className="text-sm text-slate-400 mt-0.5">Best performers this month</p>
+          <h2 className="text-base font-bold text-black">Top Products</h2>
+          <p className="text-sm text-yellow-600 mt-0.5">Best performers this month</p>
         </div>
-        <button className="text-sm text-blue-600 hover:text-blue-700 font-medium transition">
+        <button className="text-sm text-yellow-600 hover:text-black font-medium transition">
           View all
         </button>
       </div>
@@ -63,20 +65,20 @@ export default function TopProducts() {
             <span className="text-xl flex-shrink-0">{product.emoji}</span>
             <div className="flex-1 min-w-0">
               <div className="flex items-center justify-between mb-1">
-                <span className="text-sm font-medium text-slate-700 truncate">{product.name}</span>
-                <span className="text-xs font-semibold text-slate-800 ml-2 flex-shrink-0">{product.revenue}</span>
+                <span className="text-sm font-medium text-black truncate">{product.name}</span>
+                <span className="text-xs font-semibold text-black ml-2 flex-shrink-0">{product.revenue}</span>
               </div>
-              <div className="w-full bg-slate-100 rounded-full h-1.5">
+              <div className="w-full bg-yellow-100 rounded-full h-1.5">
                 <div
                   className="h-1.5 rounded-full"
                   style={{
                     width: `${(product.sales / maxSales) * 100}%`,
-                    backgroundColor: ['#3b82f6', '#8b5cf6', '#10b981', '#f59e0b', '#ef4444'][index % 5],
+                    backgroundColor: BAR_COLORS[index % BAR_COLORS.length],
                   }}
                 />
               </div>
               <div className="flex items-center justify-between mt-1">
-                <span className="text-xs text-slate-400">{product.sales.toLocaleString()} sales</span>
+                <span className="text-xs text-yellow-600">{product.sales.toLocaleString()} sales</span>
                 <span
                   className={`text-xs font-medium ${
                     product.growth >= 0 ? 'text-emerald-600' : 'text-red-500'

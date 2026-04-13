@@ -33,28 +33,28 @@ export default function Sidebar() {
 
   return (
     <aside
-      className={`relative flex flex-col bg-slate-900 text-white transition-all duration-300 ease-in-out ${
+      className={`relative flex flex-col bg-black text-yellow-100 transition-all duration-300 ease-in-out ${
         collapsed ? 'w-16' : 'w-64'
       }`}
     >
       {/* Logo */}
-      <div className="flex items-center justify-between px-4 py-5 border-b border-slate-700">
+      <div className="flex items-center justify-between px-4 py-5 border-b border-yellow-900">
         {!collapsed && (
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center">
-              <BarChart2 size={18} className="text-white" />
+            <div className="w-8 h-8 bg-yellow-400 rounded-lg flex items-center justify-center">
+              <BarChart2 size={18} className="text-black" />
             </div>
-            <span className="font-bold text-lg tracking-tight">Analytix</span>
+            <span className="font-bold text-lg tracking-tight text-yellow-400">Analytix</span>
           </div>
         )}
         {collapsed && (
-          <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center mx-auto">
-            <BarChart2 size={18} className="text-white" />
+          <div className="w-8 h-8 bg-yellow-400 rounded-lg flex items-center justify-center mx-auto">
+            <BarChart2 size={18} className="text-black" />
           </div>
         )}
         <button
           onClick={() => setCollapsed(!collapsed)}
-          className="absolute -right-3 top-6 bg-slate-700 hover:bg-slate-600 rounded-full p-1 border border-slate-600 transition-colors z-10"
+          className="absolute -right-3 top-6 bg-yellow-400 hover:bg-yellow-300 rounded-full p-1 border border-yellow-500 transition-colors z-10 text-black"
         >
           {collapsed ? <ChevronRight size={14} /> : <ChevronLeft size={14} />}
         </button>
@@ -71,8 +71,8 @@ export default function Sidebar() {
               onClick={() => setActiveItem(item.label)}
               className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-150 text-sm font-medium ${
                 isActive
-                  ? 'bg-blue-600 text-white'
-                  : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+                  ? 'bg-yellow-400 text-black'
+                  : 'text-yellow-200 hover:bg-yellow-900 hover:text-yellow-400'
               } ${collapsed ? 'justify-center' : ''}`}
             >
               <Icon size={18} className="flex-shrink-0" />
@@ -80,7 +80,7 @@ export default function Sidebar() {
                 <span className="flex-1 text-left">{item.label}</span>
               )}
               {!collapsed && item.badge && (
-                <span className="bg-blue-500 text-white text-xs rounded-full px-1.5 py-0.5 min-w-[20px] text-center">
+                <span className="bg-yellow-400 text-black text-xs rounded-full px-1.5 py-0.5 min-w-[20px] text-center font-bold">
                   {item.badge}
                 </span>
               )}
@@ -90,15 +90,15 @@ export default function Sidebar() {
       </nav>
 
       {/* User Profile */}
-      <div className="border-t border-slate-700 px-3 py-4">
+      <div className="border-t border-yellow-900 px-3 py-4">
         <div className={`flex items-center gap-3 ${collapsed ? 'justify-center' : ''}`}>
-          <div className="w-9 h-9 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center flex-shrink-0">
-            <span className="text-sm font-bold text-white">JD</span>
+          <div className="w-9 h-9 rounded-full bg-yellow-400 flex items-center justify-center flex-shrink-0">
+            <span className="text-sm font-bold text-black">JD</span>
           </div>
           {!collapsed && (
             <div className="overflow-hidden">
-              <p className="text-sm font-semibold text-white truncate">John Doe</p>
-              <p className="text-xs text-slate-400 truncate">Admin</p>
+              <p className="text-sm font-semibold text-yellow-100 truncate">John Doe</p>
+              <p className="text-xs text-yellow-600 truncate">Admin</p>
             </div>
           )}
         </div>

@@ -7,8 +7,8 @@ const stats = [
     change: '+12.5%',
     trend: 'up',
     icon: DollarSign,
-    iconBg: 'bg-blue-100',
-    iconColor: 'text-blue-600',
+    iconBg: 'bg-yellow-400',
+    iconColor: 'text-black',
     description: 'vs last month',
   },
   {
@@ -17,8 +17,8 @@ const stats = [
     change: '+8.2%',
     trend: 'up',
     icon: ShoppingBag,
-    iconBg: 'bg-violet-100',
-    iconColor: 'text-violet-600',
+    iconBg: 'bg-yellow-300',
+    iconColor: 'text-black',
     description: 'vs last month',
   },
   {
@@ -27,8 +27,8 @@ const stats = [
     change: '-3.1%',
     trend: 'down',
     icon: Users,
-    iconBg: 'bg-emerald-100',
-    iconColor: 'text-emerald-600',
+    iconBg: 'bg-yellow-500',
+    iconColor: 'text-black',
     description: 'vs last month',
   },
   {
@@ -37,8 +37,8 @@ const stats = [
     change: '+18.7%',
     trend: 'up',
     icon: Eye,
-    iconBg: 'bg-amber-100',
-    iconColor: 'text-amber-600',
+    iconBg: 'bg-yellow-200',
+    iconColor: 'text-black',
     description: 'vs last month',
   },
 ];
@@ -52,12 +52,12 @@ export default function StatsCards() {
         return (
           <div
             key={stat.title}
-            className="bg-white rounded-2xl p-5 shadow-sm border border-slate-100 hover:shadow-md transition-shadow"
+            className="bg-white rounded-2xl p-5 shadow-sm border border-yellow-200 hover:shadow-md hover:border-yellow-400 transition-all"
           >
             <div className="flex items-start justify-between">
               <div>
-                <p className="text-sm text-slate-500 font-medium">{stat.title}</p>
-                <h3 className="text-2xl font-bold text-slate-800 mt-1">{stat.value}</h3>
+                <p className="text-sm text-yellow-700 font-medium">{stat.title}</p>
+                <h3 className="text-2xl font-bold text-black mt-1">{stat.value}</h3>
               </div>
               <div className={`w-11 h-11 rounded-xl flex items-center justify-center ${stat.iconBg}`}>
                 <Icon size={22} className={stat.iconColor} />
@@ -72,7 +72,7 @@ export default function StatsCards() {
                 {isUp ? <TrendingUp size={15} /> : <TrendingDown size={15} />}
                 {stat.change}
               </span>
-              <span className="text-xs text-slate-400">{stat.description}</span>
+              <span className="text-xs text-yellow-600">{stat.description}</span>
             </div>
           </div>
         );

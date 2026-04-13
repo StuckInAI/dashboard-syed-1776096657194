@@ -30,13 +30,13 @@ const formatCurrency = (value: number) => `$${(value / 1000).toFixed(0)}k`;
 
 export default function RevenueChart() {
   return (
-    <div className="bg-white rounded-2xl p-5 shadow-sm border border-slate-100">
+    <div className="bg-white rounded-2xl p-5 shadow-sm border border-yellow-200">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h2 className="text-base font-bold text-slate-800">Revenue Overview</h2>
-          <p className="text-sm text-slate-400 mt-0.5">Monthly revenue vs expenses</p>
+          <h2 className="text-base font-bold text-black">Revenue Overview</h2>
+          <p className="text-sm text-yellow-600 mt-0.5">Monthly revenue vs expenses</p>
         </div>
-        <select className="text-sm border border-slate-200 rounded-lg px-3 py-1.5 text-slate-600 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <select className="text-sm border border-yellow-300 rounded-lg px-3 py-1.5 text-black bg-yellow-50 focus:outline-none focus:ring-2 focus:ring-yellow-400">
           <option>This Year</option>
           <option>Last Year</option>
         </select>
@@ -45,37 +45,37 @@ export default function RevenueChart() {
         <AreaChart data={data} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
           <defs>
             <linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.15} />
-              <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
+              <stop offset="5%" stopColor="#eab308" stopOpacity={0.3} />
+              <stop offset="95%" stopColor="#eab308" stopOpacity={0} />
             </linearGradient>
             <linearGradient id="colorExpenses" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#a855f7" stopOpacity={0.15} />
-              <stop offset="95%" stopColor="#a855f7" stopOpacity={0} />
+              <stop offset="5%" stopColor="#000000" stopOpacity={0.15} />
+              <stop offset="95%" stopColor="#000000" stopOpacity={0} />
             </linearGradient>
           </defs>
-          <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
+          <CartesianGrid strokeDasharray="3 3" stroke="#fef9c3" />
           <XAxis
             dataKey="month"
-            tick={{ fontSize: 12, fill: '#94a3b8' }}
+            tick={{ fontSize: 12, fill: '#a16207' }}
             axisLine={false}
             tickLine={false}
           />
           <YAxis
             tickFormatter={formatCurrency}
-            tick={{ fontSize: 12, fill: '#94a3b8' }}
+            tick={{ fontSize: 12, fill: '#a16207' }}
             axisLine={false}
             tickLine={false}
           />
           <Tooltip
             formatter={(value: number) => [`$${value.toLocaleString()}`, '']}
             contentStyle={{
-              backgroundColor: '#1e293b',
-              border: 'none',
+              backgroundColor: '#000000',
+              border: '1px solid #eab308',
               borderRadius: '10px',
-              color: '#f8fafc',
+              color: '#facc15',
               fontSize: '12px',
             }}
-            labelStyle={{ color: '#94a3b8', marginBottom: '4px' }}
+            labelStyle={{ color: '#eab308', marginBottom: '4px' }}
           />
           <Legend
             wrapperStyle={{ fontSize: '12px', paddingTop: '16px' }}
@@ -86,21 +86,21 @@ export default function RevenueChart() {
             type="monotone"
             dataKey="revenue"
             name="Revenue"
-            stroke="#3b82f6"
+            stroke="#eab308"
             strokeWidth={2.5}
             fill="url(#colorRevenue)"
             dot={false}
-            activeDot={{ r: 5, fill: '#3b82f6' }}
+            activeDot={{ r: 5, fill: '#eab308' }}
           />
           <Area
             type="monotone"
             dataKey="expenses"
             name="Expenses"
-            stroke="#a855f7"
+            stroke="#111111"
             strokeWidth={2.5}
             fill="url(#colorExpenses)"
             dot={false}
-            activeDot={{ r: 5, fill: '#a855f7' }}
+            activeDot={{ r: 5, fill: '#111111' }}
           />
         </AreaChart>
       </ResponsiveContainer>

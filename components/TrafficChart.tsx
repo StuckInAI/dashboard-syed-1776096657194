@@ -10,14 +10,14 @@ const data = [
   { name: 'Email', value: 7 },
 ];
 
-const COLORS = ['#3b82f6', '#8b5cf6', '#10b981', '#f59e0b', '#ef4444'];
+const COLORS = ['#eab308', '#000000', '#ca8a04', '#fde047', '#a16207'];
 
 export default function TrafficChart() {
   return (
-    <div className="bg-white rounded-2xl p-5 shadow-sm border border-slate-100 h-full">
+    <div className="bg-white rounded-2xl p-5 shadow-sm border border-yellow-200 h-full">
       <div className="mb-4">
-        <h2 className="text-base font-bold text-slate-800">Traffic Sources</h2>
-        <p className="text-sm text-slate-400 mt-0.5">Where visitors come from</p>
+        <h2 className="text-base font-bold text-black">Traffic Sources</h2>
+        <p className="text-sm text-yellow-600 mt-0.5">Where visitors come from</p>
       </div>
       <ResponsiveContainer width="100%" height={200}>
         <PieChart>
@@ -37,10 +37,10 @@ export default function TrafficChart() {
           <Tooltip
             formatter={(value: number) => [`${value}%`, '']}
             contentStyle={{
-              backgroundColor: '#1e293b',
-              border: 'none',
+              backgroundColor: '#000000',
+              border: '1px solid #eab308',
               borderRadius: '10px',
-              color: '#f8fafc',
+              color: '#facc15',
               fontSize: '12px',
             }}
           />
@@ -55,9 +55,9 @@ export default function TrafficChart() {
                 className="w-2.5 h-2.5 rounded-full flex-shrink-0"
                 style={{ backgroundColor: COLORS[index % COLORS.length] }}
               />
-              <span className="text-xs text-slate-600">{item.name}</span>
+              <span className="text-xs text-yellow-800">{item.name}</span>
             </div>
-            <span className="text-xs font-semibold text-slate-700">{item.value}%</span>
+            <span className="text-xs font-semibold text-black">{item.value}%</span>
           </div>
         ))}
       </div>
